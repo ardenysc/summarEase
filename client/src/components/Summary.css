@@ -3,6 +3,13 @@
     margin: 1rem;
 }
 
-.AccordionSummar {
-    background-color: aquamarine;
+.icon {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 7px;
+    cursor: pointer;
 }
+
+/* .MuiAccordionSummary-root  {
+  pointer-events: none;
+} */

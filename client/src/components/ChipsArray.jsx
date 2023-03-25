@@ -2,10 +2,14 @@ import React, { useState, useEffect} from 'react';
 import { styled } from '@mui/material/styles';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
+import Input from '@mui/material/Input';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 import { useDispatch } from "react-redux";
 import { updateKeyword } from '../redux/actions';
 import './ChipsArray.css'
+
+import { colors } from '@mui/material';
 
 const ListItem = styled('li')(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -48,16 +52,22 @@ export default function ChipsArray ({data, id}) {
     dispatch(updateKeyword(keywordId, value.label));
   }
 
+  function handleClick(event) {
+    event.stopPropagation();
+    // Handle click here
+}
+
   return (
     <Paper
+      align='left'
       sx={{
         display: 'flex',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         flexWrap: 'wrap',
         listStyle: 'none',
         p: 0.5,
         m: 0,
-        boxShadow: 'none'
+        boxShadow: 'none',
       }}
       component="ul"
     >
@@ -68,15 +78,25 @@ export default function ChipsArray ({data, id}) {
             <Chip
               label={singlechip.label}
               onDelete={handleDelete(singlechip)}
+              variant="outlined"
+              deleteIcon={<HighlightOffIcon />}
+              sx={{
+                boxShadow: 2
+              }}
             />
           </ListItem>
         );
       })}
-      <input 
-        type="text" 
-        className="tags-input" 
+      <Input 
+        id="standard-basic" 
+        label="new tag" 
+        variant="standard" 
         placeholder="new tag" 
         onKeyDown={handleKeyDown}
+        onClick={handleClick}
+        sx={{
+          ml:1,
+        }}
       />
     </Paper>
   )

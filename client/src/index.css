@@ -8,6 +8,7 @@ body {
   background-image: url(./img/background.jpg);
   /* background-position: top;
   background-position: center; */
+  background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%
