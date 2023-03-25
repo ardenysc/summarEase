@@ -40,9 +40,9 @@ export const deleteSummary = (id) => async (dispatch) => {
     }
 }
 
-export const updateKeyword = (id, keyword) => async (dispatch) => {
+export const updateKeyword = (id, newKeyword) => async (dispatch) => {
     try {
-        const response = await axios.put(`${API_URL}/summaries/${id}/keyword`, { keyword });
+        const response = await axios.put(`${API_URL}/summaries/${id}/keyword`, { newKeyword });
         dispatch({ type: UPDATE_KEYWORD, payload: response.data});
     } catch (error) {
         console.log('Error while calling updateKeyword API ', error.message);

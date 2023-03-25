@@ -42,10 +42,12 @@ const Summary = ({ summary }) => {
                         className="Typography"
                     >
                         {summary?.title}
+                        {/* {summary.keywords}
+                        {summary._id} */}
                         {/* title */}
                     </Typography>
-                    {/* <ChipsArray  data={summary.keywords} id={summary._id}/> */}
-                    <ChipsArray />
+                    <ChipsArray  data={summary.keywords} id={summary._id}/>
+                    {/* <ChipsArray /> */}
                 </AccordionSummary>
                 <AccordionDetails>
                     <Link href={summary?.url}>Link</Link>

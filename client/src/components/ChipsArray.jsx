@@ -10,7 +10,7 @@ const ListItem = styled('li')(({ theme }) => ({
   margin: theme.spacing(0.5),
 }));
 
-const ChipsArray = (data, id) => {
+export default function ChipsArray ({data, id}) {
   const dispatch = useDispatch();
   const [chipData, setChipData] = React.useState([]);
   const keywordData = data;
@@ -22,6 +22,8 @@ const ChipsArray = (data, id) => {
   }
   useEffect(()=>{
     setChipData(arr);
+    // console.log(data.length)
+    console.log(arr.length)
   }, [])
 
   const handleDelete = (chipToDelete) => () => {
@@ -76,5 +78,3 @@ const ChipsArray = (data, id) => {
     </Paper>
   )
 }
-
-export default ChipsArray;
