@@ -1,4 +1,5 @@
 import Connection from './database/db.js';
+import "./chatgpt/chatgpt.js";
 import app from "./server.js";
 
 const PORT = 8000;
@@ -7,6 +8,8 @@ const handleListening = () => {
 }
 
 
-
 app.listen(PORT, handleListening);
 Connection();
+
+
+  
