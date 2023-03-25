@@ -18,7 +18,23 @@ function toStringArray(completionText, delimiter) {
   return completionText.slice(2).split(delimiter);
 }
 
-export const getTopics = async (url) => {
+export const getKeywords = async (url) => {
+  try{
+    const keywordCompletion = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: generateKeywordPrompt(url),
+      temperature: 0.6,
+      top_p: 0.5,
+      max_tokens: 200
+    });
+    //res.status(200).json({ result: completion.data.choices[0].text });
+    let keywordCompletionText = keywordCompletion.data.choices[0].text;
+    // console.log(keywordCompletion.data.choices[0].text);
+    return toStringArray(keywordCompletionText, ", ");
+  } catch(error) {
+    console.log(error)
+}
+
 
 }
 
@@ -30,36 +46,32 @@ export const getSummary = async (url) => {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(url),
+      prompt: generateSummaryPrompt(url),
       temperature: 0.6,
       max_tokens: 200
     });
     //res.status(200).json({ result: completion.data.choices[0].text });
     const summary = completion.data.choices[0].text
     console.log(summary);
+
+    return summary;
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
-    if (error.response) {
-      console.error(error.response.status, error.response.data);
-      res.status(error.response.status).json(error.response.data);
-    } else {
-      console.error(`Error with OpenAI API request: ${error.message}`);
-      res.status(500).json({
-        error: {
-          message: 'An error occurred during your request.',
-        }
-      });
-    }
+    console.log(error)
   }
 }
  
 
 export const handleUrl =  async (req, res) => {
-    const url = req.body.url;
-    const summary = getSummary(url);
-    const topics = getTopics(url);
-    const title = getTitle(url);
-
     
   
+    const url = req.body.url;
+    const data = {
+    url,
+    summary: await getSummary(url),
+    keywords: await getKeywords(url),
+    title:   "title"
+    }
+    //getTitle(url);
+    console.log(data);
   }
