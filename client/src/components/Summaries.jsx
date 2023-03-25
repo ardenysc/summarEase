@@ -20,7 +20,7 @@ const Summaries = () => {
 
   return (
     <article>
-        <ul>
+        <div>
             {
                 getSummaries().map(summary => (
                     <Summary 
@@ -29,7 +29,7 @@ const Summaries = () => {
                     />
                 ))
             }    
-        </ul>
+        </div>
     </article>
   )
 }

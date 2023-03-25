@@ -10,6 +10,7 @@ const ListItem = styled('li')(({ theme }) => ({
   margin: theme.spacing(0.5),
 }));
 
+
 export default function ChipsArray ({data, id}) {
   const dispatch = useDispatch();
   const [chipData, setChipData] = React.useState([]);
@@ -55,6 +56,7 @@ export default function ChipsArray ({data, id}) {
         listStyle: 'none',
         p: 0.5,
         m: 0,
+        boxShadow: 'none'
       }}
       component="ul"
     >

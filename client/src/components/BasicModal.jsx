@@ -24,6 +24,9 @@ export default function BasicModal ({ open, id, title, text }) {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // const [, updateState] = React.useState();
+    // const forceUpdate = React.useCallback(() => updateState({}), []);
+
     const [newTitle, setNewTitle] = useState(title);
     const [newText, setNewText] = useState(text);
     const handleSubmit = (newTitle, newText) => () => {

@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Link from '@mui/material/Link';
 import ChipsArray from '../components/ChipsArray';
 import BasicModal from "./BasicModal";
+import './Summary.css'
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -29,7 +30,7 @@ const Summary = ({ summary }) => {
 
   return (
     <React.Fragment>
-        <li>
+        <li className='listItem'>
             <Accordion className='Accordion' expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
