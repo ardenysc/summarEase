@@ -2,6 +2,7 @@ import Summary from '../model/Summary.js';
 
 
 export const createNewSummary = async (data) => {
+    console.log(data);
     const {url, title, text, keywords} = data;
     try {
         const newSummary = await Summary.create({
