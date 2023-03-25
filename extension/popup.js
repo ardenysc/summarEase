@@ -20,3 +20,7 @@ document.getElementById('addBtn').addEventListener('click', function() {
     }    
     });
   });
+
+document.getElementById('dashboardBtn').addEventListener('click', () => {
+    window.open('http://localhost:3000', '_blank').focus();
+})
