@@ -23,7 +23,7 @@ export default function ChipsArray ({data, id}) {
   useEffect(()=>{
     setChipData(arr);
     // console.log(data.length)
-    console.log(arr.length)
+    // console.log(arr.length)
   }, [])
 
   const handleDelete = (chipToDelete) => () => {

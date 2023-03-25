@@ -18,7 +18,7 @@ const style = {
     p: 4,
 };
 
-const BasicModal = ({ open, id, title, text }) => {
+export default function BasicModal ({ open, id, title, text }) {
     const dispatch = useDispatch();
     const itemId = id;
     const itemTitle = title;
@@ -31,7 +31,15 @@ const BasicModal = ({ open, id, title, text }) => {
     const [newText, setNewText] = useState('');
     const handleSubmit = (newTitle, newText) => () => {
         setOpen(false);
-        dispatch(updateSummary(id, newTitle, newText));
+        if (newTitle.length < 1 && newText.length < 1) {
+            dispatch(updateSummary(id, itemTitle, itemText));
+        } else if (newTitle.length < 1) {
+            dispatch(updateSummary(id, itemTitle, newText));
+        } else if (newText.length < 1) {
+            dispatch(updateSummary(id, newTitle, itemText));
+        } else {
+            dispatch(updateSummary(id, newTitle, newText));
+        }
         // forceUpdate();
       };
 
@@ -74,5 +82,5 @@ const BasicModal = ({ open, id, title, text }) => {
   )
 }
 
-export default BasicModal;
+// export default BasicModal;
 
