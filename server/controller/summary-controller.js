@@ -1,6 +1,28 @@
 import Summary from '../model/Summary.js';
 
 
+export const searchSummary = async (req, res) => {
+    console.log(req.params);
+    const searchTerm = req.params.searchTerm;
+    let summaries = [];
+
+    if(searchTerm) {
+        console.log(searchTerm)
+        try{
+            summaries = await Summary.find({
+                $or: [
+                    { title: { $regex: searchTerm, $options: "i" } },
+                    { keywords: { $in: [searchTerm] } },
+                    ]
+            })
+            console.log(summaries);
+            return res.status(200).json(summaries);
+        } catch(error){
+            return res.status(500).json(error.message);
+        }
+    }
+}
+
 export const createNewSummary = async (data) => {
     console.log(data);
     const {url, title, text, keywords} = data;

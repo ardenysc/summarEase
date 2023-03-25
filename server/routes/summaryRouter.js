@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 
-import { addNewSummary, getAllSummary, updateSummary, deleteSummary, updateKeyword } from '../controller/summary-controller.js';
+import { searchSummary, addNewSummary, getAllSummary, updateSummary, deleteSummary, updateKeyword } from '../controller/summary-controller.js';
 
 const summaryRouter = express.Router();
 
@@ -9,6 +9,7 @@ summaryRouter.get('/', getAllSummary);
 summaryRouter.put('/:id', updateSummary);
 summaryRouter.put('/:id/keyword', updateKeyword);
 summaryRouter.delete('/:id', deleteSummary);
+summaryRouter.get('/search/:searchTerm', searchSummary);
 
 
 
