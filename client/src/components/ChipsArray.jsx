@@ -4,6 +4,10 @@ import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
 import Input from '@mui/material/Input';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Input from '@mui/material/Input';
+import Box from '@mui/material/Box';
+
 
 import { useDispatch } from "react-redux";
 import { updateKeyword } from '../redux/actions';
