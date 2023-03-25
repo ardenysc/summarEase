@@ -1,10 +1,10 @@
 import express, { Router } from 'express';
 
-import { handleUrl } from '../controller/extension-controller.js';
+import { handleAdd } from '../controller/gpt-controller.js';
 
 const extensionRouter = express.Router();
 
-extensionRouter.post('/', handleUrl);
+extensionRouter.post('/', handleAdd);
 
 
 
