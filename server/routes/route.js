@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 
-import { addNewSummary, getAllSummary, updateSummary, deleteSummary, updateKeyword } from '../controller/todo-controller.js';
+import { addNewSummary, getAllSummary, updateSummary, deleteSummary, updateKeyword } from '../controller/summary-controller.js';
 
 const route = express.Router();
 
