@@ -4,7 +4,11 @@ document.getElementById('addBtn').addEventListener('click', function() {
     chrome.tabs.query({ active: true, currentWindow: true }, async function(tabs) {
     let url = tabs[0].url;
     // Send popupData to localhost:15000/database as a POST request
+<<<<<<< HEAD
     const postResponse = await fetch('http://localhost:16000/database', {
+=======
+    const postResponse = await fetch('http://localhost:8000/extension', {
+>>>>>>> arden/client
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
