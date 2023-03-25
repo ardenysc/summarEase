@@ -1,15 +1,28 @@
 import Summary from '../model/Summary.js';
 
-export const addNewSummary = async (request, response) => {
+
+export const createNewSummary = async (data) => {
+    const {url, title, text, keywords} = data;
     try {
         const newSummary = await Summary.create({
-            url: request.body.url,
-            title: request.body.title,
-            text: request.body.text,
-            keywords: request.body.keywords,
+            url,
+            title,
+            text,
+            keywords,
             createdAt: Date.now()
         })
         await newSummary.save();
+
+        return newSummary;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+export const addNewSummary = async (request, response) => {
+    try {
+        const newSummary = await createNewSummary(request.body);
         return response.status(200).json(newSummary);
     } catch (error) {
         return response.status(500).json(error.message);
