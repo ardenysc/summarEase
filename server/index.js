@@ -1,22 +1,12 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-
 import Connection from './database/db.js';
-import Routes from './routes/route.js';
-
-const app = express();
-
-
-app.use(cors());
-
-app.use(bodyParser.json({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }))
-
-app.use('/', Routes);
+import app from "./server.js";
 
 const PORT = 8000;
+const handleListening = () => {
+    console.log(`🌟 Server listening on port http://localhost:${PORT}  🌟`);
+}
 
+
+
+app.listen(PORT, handleListening);
 Connection();
-
-app.listen(PORT, () => console.log(`Your server is running successfully on PORT ${PORT}`));
