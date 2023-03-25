@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import { useDispatch } from "react-redux";
-import { updateSummary } from '../redux/actions';
 
 const style = {
     position: 'absolute',
@@ -18,11 +17,7 @@ const style = {
     p: 4,
 };
 
-const BasicModal = ({ open, id, title, text }) => {
-    const dispatch = useDispatch();
-    const itemId = id;
-    const itemTitle = title;
-    const itemText = text;
+const BasicModal = ({open}) => {
     const [isopen, setOpen] = React.useState(open);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -31,7 +26,7 @@ const BasicModal = ({ open, id, title, text }) => {
     const [newText, setNewText] = useState('');
     const handleSubmit = (newTitle, newText) => () => {
         setOpen(false);
-        dispatch(updateSummary(id, newTitle, newText));
+        // dispatch(updateTodo(id, newTitle, newText));
         // forceUpdate();
       };
 
@@ -48,8 +43,8 @@ const BasicModal = ({ open, id, title, text }) => {
                     <TextField
                         id="standard-helperText"
                         label="Title"
-                        defaultValue={itemTitle}
-                        // defaultValue="default"
+                        // defaultValue={itemTitle}
+                        defaultValue="default"
                         variant="standard"
                         onChange={(event) => {setNewTitle(event.target.value)}} 
                     />
@@ -60,14 +55,14 @@ const BasicModal = ({ open, id, title, text }) => {
                     label="Summary"
                     multiline
                     rows={5}
-                    defaultValue={itemText}
-                    // defaultValue="default"
+                    // defaultValue={itemText}
+                    defaultValue="default"
                     variant="standard"
                     onChange={(event) => {setNewText(event.target.value)}} 
                 />
                 </div>
-                <Button variant="outlined" onClick={handleSubmit(newTitle, newText)}>submit</Button>
-                {/* <Button variant="outlined">submit</Button> */}
+                {/* <Button variant="outlined" onClick={handleSubmit(newTitle, newText)}>submit</Button> */}
+                <Button variant="outlined">submit</Button>
             </Box>
         </Modal>
     </div>

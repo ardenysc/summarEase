@@ -1,6 +1,5 @@
 import './App.css';
 import Header from './components/Header';
-import Summaries from './components/Summaries';
 import Summary from './components/Summary';
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
     <div className="App">
       <Header />
       <Summary />
-      <Summaries />
     </div>
   );
 }

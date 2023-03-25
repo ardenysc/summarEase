@@ -3,14 +3,13 @@ import Summary from './Summary';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getAllSummary } from '../redux/actions/index';
 
 const Summaries = () => {
     const dispatch = useDispatch();
     const summaries = useSelector(state => state.summaries);
 
     useEffect(() => {
-        dispatch(getAllSummary());
+        dispatch(getAllSummaries());
     }, [])
 
     const getSummaries = () => {
