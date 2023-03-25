@@ -2,11 +2,21 @@ import axios from "axios";
 import openai from "../chatgpt/chatgpt.js";
 const clientUrl = "http://localhost:3000/";
 
-function generatePrompt(url) {
-    return `Provide a summary of this webpage in 50 words.
+function generateSummaryPrompt(url) {
+    return `Provide a summary of this webpage in 60 words.
   
-  Webpage: https://globalnews.ca/news/9577125/edmonton-police-regimental-funeral-procession-road-closures-transit/`;
+  Webpage: ${url}`;
  };
+
+function generateKeywordPrompt(url) {
+  return `Provide 8 keywords for this webpage in comma separated format.
+
+Webpage: ${url}`;
+};
+
+function toStringArray(completionText, delimiter) {
+  return completionText.slice(2).split(delimiter);
+}
 
 export const getTopics = async (url) => {
 
