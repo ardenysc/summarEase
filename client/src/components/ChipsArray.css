@@ -2,3 +2,17 @@
     margin-left: 10rem;
     background-color: aqua;
 }
+
+/* .Chip{ */
+  /* Set the size and style of the border /
+  border: 5px solid transparent;
+  border-image: linear-gradient(to right, #e52d27, #b31217) 1;
+
+  /* / Set the height and width of the element / */
+  /* height: 100px;
+  width: 100%; */
+
+  /* / Optional: add additional styles */
+  /* border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);  */ 
+/* } */
