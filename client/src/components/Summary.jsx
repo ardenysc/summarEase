@@ -36,34 +36,26 @@ const Summary = ({ summary }) => {
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
-                    className="AccordionSummary"
+                    className="AccordionSummar"
                 >
                     <Typography 
                         sx={{ width: '33%', flexShrink: 0 }}
                         className="Typography"
                     >
                         {summary?.title}
-                        {/* {summary.keywords}
-                        {summary._id} */}
-                        {/* title */}
                     </Typography>
                     <ChipsArray  data={summary.keywords} id={summary._id}/>
-                    {/* <ChipsArray /> */}
                 </AccordionSummary>
                 <AccordionDetails>
                     <Link href={summary?.url}>Link</Link>
-                    {/* <Link href="#">Link</Link> */}
                     <Typography>
                         {summary?.text}
-                        {/* text */}
                     </Typography>
                         <span className="icon" onClick={showModalHandler}>
                             <i className="fas fa-pen" />
                         </span>
                         {showModal ? <BasicModal open={showModal} id={summary._id} title={summary.title} text={summary.text} />: null }
-                        {/* {showModal ? <BasicModal open={showModal} />: null } */}
                         <span className="icon" onClick={() => dispatch(deleteSummary(summary._id))}>
-                        {/* <span className="icon"> */}
                             <i className="fas fa-trash" />
                         </span>
                 </AccordionDetails>
