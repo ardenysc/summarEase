@@ -20,26 +20,16 @@ const style = {
 
 export default function BasicModal ({ open, id, title, text }) {
     const dispatch = useDispatch();
-    const itemId = id;
-    const itemTitle = title;
-    const itemText = text;
     const [isopen, setOpen] = React.useState(open);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const [newTitle, setNewTitle] = useState('');
-    const [newText, setNewText] = useState('');
+    const [newTitle, setNewTitle] = useState(title);
+    const [newText, setNewText] = useState(text);
     const handleSubmit = (newTitle, newText) => () => {
         setOpen(false);
-        if (newTitle.length < 1 && newText.length < 1) {
-            dispatch(updateSummary(id, itemTitle, itemText));
-        } else if (newTitle.length < 1) {
-            dispatch(updateSummary(id, itemTitle, newText));
-        } else if (newText.length < 1) {
-            dispatch(updateSummary(id, newTitle, itemText));
-        } else {
-            dispatch(updateSummary(id, newTitle, newText));
-        }
+        dispatch(updateSummary(id, newTitle, newText));
+        window.location.reload(false);
         // forceUpdate();
       };
 
@@ -54,9 +44,9 @@ export default function BasicModal ({ open, id, title, text }) {
             <Box sx={style}>
                 <div>
                     <TextField
-                        id="standard-helperText"
+                        id="standard-basic"
                         label="Title"
-                        defaultValue={itemTitle}
+                        value={newTitle}
                         // defaultValue="default"
                         variant="standard"
                         onChange={(event) => {setNewTitle(event.target.value)}} 
@@ -64,11 +54,11 @@ export default function BasicModal ({ open, id, title, text }) {
                 </div>
                 <div>
                 <TextField
-                    id="standard-multiline-static"
+                    id="standard-multiline-flexible"
                     label="Summary"
                     multiline
                     rows={5}
-                    defaultValue={itemText}
+                    value={newText}
                     // defaultValue="default"
                     variant="standard"
                     onChange={(event) => {setNewText(event.target.value)}} 
