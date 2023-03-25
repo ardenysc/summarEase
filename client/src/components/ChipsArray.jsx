@@ -2,6 +2,10 @@ import React, { useState, useEffect} from 'react';
 import { styled } from '@mui/material/styles';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Input from '@mui/material/Input';
+import Box from '@mui/material/Box';
+
 
 import { useDispatch } from "react-redux";
 import { updateKeyword } from '../redux/actions';
@@ -68,16 +72,27 @@ export default function ChipsArray ({data, id}) {
             <Chip
               label={singlechip.label}
               onDelete={handleDelete(singlechip)}
+              variant="outlined"
             />
           </ListItem>
         );
       })}
-      <input 
-        type="text" 
-        className="tags-input" 
-        placeholder="new tag" 
-        onKeyDown={handleKeyDown}
-      />
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1 },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <input
+          type="text" 
+          className="tags-input" 
+          placeholder="new tag" 
+          onKeyDown={handleKeyDown}
+        />  
+      </Box>
+      
     </Paper>
   )
 }
