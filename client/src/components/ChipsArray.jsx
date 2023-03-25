@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 
 import { useDispatch } from "react-redux";
 import { updateKeyword } from '../redux/actions';
+import './ChipsArray.css'
 
 const ListItem = styled('li')(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -63,7 +64,7 @@ export default function ChipsArray ({data, id}) {
       {chipData.map((singlechip) => {
 
         return (
-          <ListItem key={singlechip.key}>
+          <ListItem key={singlechip.key} className='ListItem'>
             <Chip
               label={singlechip.label}
               onDelete={handleDelete(singlechip)}
