@@ -1,4 +1,4 @@
-# summarEase
+# SummarEase
 
 ### Description
 SummarEase summarizes and extracts keywords from websites of your choice using ChatGPT API. 
